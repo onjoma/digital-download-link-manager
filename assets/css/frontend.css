@@ -1,0 +1,203 @@
+.ddlm-download-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #2271b1 0%, #135e96 100%);
+    color: #fff !important;
+    text-decoration: none !important;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(34, 113, 177, 0.3);
+    text-align: center;
+}
+
+.ddlm-download-button:hover {
+    background: linear-gradient(135deg, #135e96 0%, #0a4a75 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(34, 113, 177, 0.4);
+    color: #fff !important;
+}
+
+.ddlm-download-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(34, 113, 177, 0.3);
+}
+
+.ddlm-error {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 12px 20px;
+    border-radius: 4px;
+    border-left: 4px solid #f5c6cb;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+/* Email Modal */
+.ddlm-modal {
+    display: none;
+    position: fixed;
+    z-index: 100000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow: auto;
+}
+
+.ddlm-modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 30px;
+    border: 1px solid #ccd0d4;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.ddlm-modal-close {
+    color: #646970;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 20px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.ddlm-modal-close:hover,
+.ddlm-modal-close:focus {
+    color: #1d2327;
+}
+
+.ddlm-email-modal-content {
+    max-width: 500px;
+}
+
+.ddlm-email-modal-header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.ddlm-email-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.ddlm-email-modal-header h2 {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+    color: #1d2327;
+}
+
+.ddlm-email-modal-header p {
+    margin: 0;
+    color: #646970;
+    font-size: 14px;
+}
+
+.ddlm-email-modal-body {
+    padding: 30px 0;
+}
+
+.ddlm-email-modal-body p {
+    margin: 0 0 15px 0;
+    color: #646970;
+}
+
+#ddlm-email-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#ddlm-email-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+#ddlm-email-input:focus {
+    outline: none;
+    border-color: #2271b1;
+}
+
+.ddlm-submit-email {
+    width: 100%;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #2271b1 0%, #135e96 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ddlm-submit-email:hover {
+    background: linear-gradient(135deg, #135e96 0%, #0a4a75 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(34, 113, 177, 0.4);
+}
+
+.ddlm-submit-email:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.ddlm-email-message {
+    padding: 12px 15px;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.ddlm-message-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.ddlm-message-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.ddlm-email-modal-footer {
+    padding-top: 20px;
+    border-top: 1px solid #e5e5e5;
+    text-align: center;
+}
+
+.ddlm-email-modal-footer p {
+    margin: 0;
+    color: #8c8f94;
+    font-size: 13px;
+}
+
+@media screen and (max-width: 768px) {
+    .ddlm-download-button {
+        display: block;
+        width: 100%;
+        padding: 15px 20px;
+        font-size: 15px;
+    }
+    
+    .ddlm-email-modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+}
