@@ -122,6 +122,14 @@ The plugin creates three tables:
 
 For support, please visit [https://lindawp.com](https://lindawp.com)
 
+## Support Development
+
+If you find this plugin helpful, consider supporting its development:
+
+[![Donate](https://img.shields.io/badge/Donate-Support%20Development-blue?style=for-the-badge)](https://link.payoneer.com/Token?t=4433EE67F2184BBE9F83A196232FB448&src=tpl)
+
+Your support helps maintain and improve this plugin. Thank you! 🙏
+
 ## License
 
 GPL v2 or later
