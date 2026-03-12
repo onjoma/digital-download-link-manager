@@ -5,7 +5,7 @@ if (!defined('ABSPATH')) {
 ?>
 
 <div class="wrap ddlm-admin-wrap">
-    <h1>Digital Download Link Manager</h1>
+    <h1>LindaWP Download Manager</h1>
     
     <div class="ddlm-admin-container">
         <div class="ddlm-upload-section">

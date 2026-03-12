@@ -1,58 +1,30 @@
-# macOS
+# WordPress
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+
+# Plugin secure files (user uploads — never commit these)
+/ddlm-secure-files/
+
+# OS files
 .DS_Store
-.AppleDouble
-.LSOverride
-
-# Thumbnails
-._*
-
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-
-# Windows
 Thumbs.db
-ehthumbs.db
-Desktop.ini
-$RECYCLE.BIN/
+desktop.ini
 
-# IDE
+# IDE / editor
 .vscode/
 .idea/
 *.sublime-project
 *.sublime-workspace
 
-# Node modules (if any)
+# Node (if build tools are ever added)
 node_modules/
+npm-debug.log
+yarn-error.log
 
 # Composer
-/vendor/
+vendor/
 
-# Log files
+# Logs
 *.log
-
-# Temporary files
-*.tmp
-*.temp
-*.swp
-*.swo
-*~
-
-# WordPress specific
-wp-config.php
-.htaccess
-
-# Plugin specific - don't track uploaded files
-ddlm-secure-files/

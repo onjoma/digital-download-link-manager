@@ -1,4 +1,4 @@
-# Digital Download Link Manager
+# LindaWP Download Manager
 
 A WordPress plugin designed to protect digital file downloads with unique, temporary one-time-use links that expire immediately after download.
 
@@ -16,13 +16,13 @@ A WordPress plugin designed to protect digital file downloads with unique, tempo
 
 1. Upload the `digital-download-link-manager` folder to `/wp-content/plugins/`
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Navigate to 'Digital Downloads' in the admin menu
+3. Navigate to 'Linda Downloads' in the admin menu
 
 ## Usage
 
 ### Upload Files
 
-1. Go to **Digital Downloads > All Files**
+1. Go to **Linda Downloads > All Files**
 2. Drag and drop files or click "Browse Files"
 3. Wait for upload to complete
 
@@ -60,7 +60,7 @@ Use this in custom HTML or page builders:
 
 ### View Statistics
 
-Go to **Digital Downloads > Statistics** to view:
+Go to **Linda Downloads > Statistics** to view:
 - Total files and downloads
 - Top downloaded files
 - Recent download activity
@@ -107,10 +107,11 @@ add_filter('ddlm_max_file_size', function($size) {
 
 ## Database Tables
 
-The plugin creates three tables:
+The plugin creates four tables:
 - `wp_ddlm_files`: Stores file information
 - `wp_ddlm_tokens`: Manages download tokens
 - `wp_ddlm_downloads`: Logs download history
+- `wp_ddlm_emails`: Stores email submissions
 
 ## Requirements
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Digital Download Link Manager
+ * Plugin Name: LindaWP Download Manager
  * Plugin URI: https://lindawp.com
  * Description: Protect digital file downloads with unique, temporary one-time-use links that expire immediately after download.
  * Version: 1.0.0
@@ -235,7 +235,7 @@ class Digital_Download_Link_Manager {
         if (get_transient('ddlm_flush_rewrite_notice')) {
             ?>
             <div class="notice notice-warning is-dismissible">
-                <p><strong>Digital Download Link Manager:</strong> Download links may not work properly. <a href="<?php echo admin_url('admin.php?page=ddlm-manager&ddlm_flush=1'); ?>">Click here to fix</a></p>
+                <p><strong>LindaWP Download Manager:</strong> Download links may not work properly. <a href="<?php echo admin_url('admin.php?page=ddlm-manager&ddlm_flush=1'); ?>">Click here to fix</a></p>
             </div>
             <?php
         }
@@ -253,8 +253,8 @@ class Digital_Download_Link_Manager {
     
     public function add_admin_menu() {
         add_menu_page(
-            'Digital Downloads',
-            'Digital Downloads',
+            'Linda Downloads',
+            'Linda Downloads',
             'manage_options',
             'ddlm-manager',
             array($this, 'render_admin_page'),
