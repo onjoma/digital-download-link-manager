@@ -188,7 +188,7 @@ class Digital_Download_Link_Manager {
         }
         
         $emails_table = $wpdb->prefix . 'ddlm_emails';
-        $table_exists = $wpdb->get_var("SHOW TABLES LIKE '$emails_table'");
+        $table_exists = $wpdb->get_var($wpdb->prepare("SHOW TABLES LIKE %s", $emails_table));
         
         if ($table_exists != $emails_table) {
             $charset_collate = $wpdb->get_charset_collate();
@@ -235,7 +235,7 @@ class Digital_Download_Link_Manager {
         if (get_transient('ddlm_flush_rewrite_notice')) {
             ?>
             <div class="notice notice-warning is-dismissible">
-                <p><strong>LindaWP Download Manager:</strong> Download links may not work properly. <a href="<?php echo admin_url('admin.php?page=ddlm-manager&ddlm_flush=1'); ?>">Click here to fix</a></p>
+                <p><strong>LindaWP Download Manager:</strong> Download links may not work properly. <a href="<?php echo esc_url(admin_url('admin.php?page=ddlm-manager&ddlm_flush=1')); ?>">Click here to fix</a></p>
             </div>
             <?php
         }
@@ -359,16 +359,21 @@ class Digital_Download_Link_Manager {
         $unique_filename = uniqid() . '_' . sanitize_file_name($file['name']);
         $upload_path = DDLM_UPLOAD_DIR . $unique_filename;
         
+        // Determine MIME type from actual file content, not browser-reported value
+        $mime_type = function_exists('mime_content_type')
+            ? mime_content_type($file['tmp_name'])
+            : 'application/octet-stream';
+
         if (move_uploaded_file($file['tmp_name'], $upload_path)) {
             global $wpdb;
             $files_table = $wpdb->prefix . 'ddlm_files';
-            
+
             $wpdb->insert($files_table, array(
                 'file_name' => $unique_filename,
                 'original_name' => sanitize_file_name($file['name']),
                 'file_path' => $upload_path,
                 'file_size' => $file['size'],
-                'mime_type' => $file['type'],
+                'mime_type' => $mime_type,
                 'upload_date' => current_time('mysql')
             ));
             
@@ -501,7 +506,7 @@ class Digital_Download_Link_Manager {
             'file_id' => $file_id,
             'token_id' => $token_id,
             'submitted_date' => current_time('mysql'),
-            'ip_address' => isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : ''
+            'ip_address' => isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field($_SERVER['REMOTE_ADDR']) : ''
         ));
         
         $to = $email;
@@ -797,8 +802,8 @@ class Digital_Download_Link_Manager {
             array(
                 'is_used' => 1,
                 'used_at' => current_time('mysql'),
-                'ip_address' => $_SERVER['REMOTE_ADDR'],
-                'user_agent' => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : ''
+                'ip_address' => isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field($_SERVER['REMOTE_ADDR']) : '',
+                'user_agent' => isset($_SERVER['HTTP_USER_AGENT']) ? sanitize_text_field($_SERVER['HTTP_USER_AGENT']) : ''
             ),
             array('id' => $token_data->id)
         );
@@ -839,8 +844,8 @@ class Digital_Download_Link_Manager {
             'file_id' => $file->id,
             'token_id' => $token_data->id,
             'download_date' => current_time('mysql'),
-            'ip_address' => $_SERVER['REMOTE_ADDR'],
-            'user_agent' => isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : ''
+            'ip_address' => isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field($_SERVER['REMOTE_ADDR']) : '',
+            'user_agent' => isset($_SERVER['HTTP_USER_AGENT']) ? sanitize_text_field($_SERVER['HTTP_USER_AGENT']) : ''
         ));
         
         $wpdb->query($wpdb->prepare(

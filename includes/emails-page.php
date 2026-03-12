@@ -39,7 +39,7 @@ $total_submissions = $wpdb->get_var("SELECT COUNT(*) FROM $emails_table");
                     <button type="button" class="button" id="ddlm-refresh-emails">
                         <span class="dashicons dashicons-update"></span> Refresh
                     </button>
-                    <a href="<?php echo admin_url('admin-ajax.php?action=ddlm_export_emails&nonce=' . wp_create_nonce('ddlm_admin_nonce')); ?>" class="button button-primary">
+                    <a href="<?php echo esc_url(admin_url('admin-ajax.php?action=ddlm_export_emails&nonce=' . wp_create_nonce('ddlm_admin_nonce'))); ?>" class="button button-primary">
                         <span class="dashicons dashicons-download"></span> Export CSV
                     </a>
                 </div>
